@@ -4,6 +4,8 @@ A port of Culture Kings' [Liquid JSON parser for Shopify](https://github.com/cul
 
 As the name suggests these snippets allow you to be able to use json strings either directly or pulled from metafields inside your Kajabi templates.
 
+**IMPORTANT: most of this is unstable and breaks currently.** json_lazy_decode is the only method supported at present.
+
 ### Installing
 
 Installing is rather simple. Just copy the two following files in to your snippets directory. The file names are important so keep them the same.
@@ -47,12 +49,12 @@ Lets now load this string in to the json_decode snippet so that we can then acce
 A quick break down of what the above does
 
 1. We wrap the include in a `capture` as it doesn't actually output anything unless there is an error.
-If there is an error the `capture ` puts it in a variable rather than exposing it to your store customers.
-This is optional however it is highly recommended to use this method.
+  If there is an error the `capture ` puts it in a variable rather than exposing it to your store customers.
+  This is optional however it is highly recommended to use this method.
 
 2. We `include` the file `json_decode` from our snippets directory. Along with this we set the top level namespace for our json which is important to be able to handle multiple json files.
-As we can see this is done by passing the string `example` to the `jd__namespace` include variable. We also then pass our `json` variable we created earlier in to the `jd__data` include variable.
-Both `jd__namespace` and `jd__data` are required for the snippet to work.
+  As we can see this is done by passing the string `example` to the `jd__namespace` include variable. We also then pass our `json` variable we created earlier in to the `jd__data` include variable.
+  Both `jd__namespace` and `jd__data` are required for the snippet to work.
 
 What the above does for us is actually build 2 new variables in our liquid template called `jd__global_keys` and `jd__global_values`. It is possible to use these directly however the
 following methods allow you to access the values in a much simplier way.
@@ -192,5 +194,5 @@ To overcome this we have developed a very simple lazy parser that only looks for
 Usage is as follows
 
 ```liquid
-{% include 'json_lazy_decode' json: product.metafields.global.JAN key: 'three_sixty' %}{% assign three_sixty = jld__yield_1 %}
+{% include 'json_lazy_decode' json: my_json_var key: 'three_sixty' %}{% assign three_sixty = jld__yield_1 %}
 ```
