@@ -1,10 +1,8 @@
-# Shopify Liquid Json Parser / Decoder
+# Kajabi Liquid Json Parser / Decoder
 
-As the name suggests these snippets allow you to be able to use json strings either directly or pulled from metafields inside your Shopify templates.
+A port of Culture Kings' [Liquid JSON parser for Shopify](https://github.com/culturekings/shopify-json-parser) to work in Kajabi site and product themes.
 
-## Getting Started
-
-This project is built entirely from liquid which means it is supported on all Shopify stores. Let's hope that one day this library is replaced by native support.
+As the name suggests these snippets allow you to be able to use json strings either directly or pulled from metafields inside your Kajabi templates.
 
 ### Installing
 
@@ -17,7 +15,7 @@ json_decode_output.liquid - This file is optional and just provides another way 
 json_lazy_decode.liquid - This file is optional and provides a more efficient decode for single array values.
 ```
 
-And your done!
+And you're done!
 
 ## Usage
 
